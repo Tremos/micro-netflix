@@ -1,8 +1,8 @@
+from dao.models.base import BaseModel
 from db import db
 
 
-class Movie(db.Model):
-    __tablename__ = "movies"
+class Movie(BaseModel):
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255))
@@ -10,7 +10,7 @@ class Movie(db.Model):
     trailer = db.Column(db.String(255))
     year = db.Column(db.Integer)
     rating = db.Column(db.Float)
-    genre_id = db.Column(db.Integer, db.ForeignKey("genres.id"))
+    genre_id = db.Column(db.Integer, db.ForeignKey("genre.id"))
     director_id = db.Column(db.Integer, db.ForeignKey("director.id"))
 
     def __repr__(self):

@@ -1,8 +1,9 @@
+from dao.models.base import BaseModel
+from .movie import Movie
 from db import db
 
 
-class Director(db.Model):
-    __tablename__ = "directors"
+class Director(BaseModel):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), unique=True, nullable=False)
